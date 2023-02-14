@@ -57,7 +57,7 @@ class NetworkPrinter {
     _socket.add(_generator.reset());
   }
 
-  void text(
+  List<int> text(
     String text, {
     PosStyles styles = const PosStyles(),
     int linesAfter = 0,
@@ -69,6 +69,7 @@ class NetworkPrinter {
         linesAfter: linesAfter,
         containsChinese: containsChinese,
         maxCharsPerLine: maxCharsPerLine));
+    return [];
   }
 
   void setGlobalCodeTable(String codeTable) {
@@ -92,12 +93,14 @@ class NetworkPrinter {
     _socket.add(_generator.emptyLines(n));
   }
 
-  void feed(int n) {
+  List<int> feed(int n) {
     _socket.add(_generator.feed(n));
+    return [];
   }
 
-  void cut({PosCutMode mode = PosCutMode.full}) {
+  List<int> cut({PosCutMode mode = PosCutMode.full}) {
     _socket.add(_generator.cut(mode: mode));
+    return [];
   }
 
   void printCodeTable({String? codeTable}) {
@@ -112,12 +115,14 @@ class NetworkPrinter {
     _socket.add(_generator.reverseFeed(n));
   }
 
-  void row(List<PosColumn> cols) {
+  List<int> row(List<PosColumn> cols) {
     _socket.add(_generator.row(cols));
+    return [];
   }
 
-  void image(Image imgSrc, {PosAlign align = PosAlign.center}) {
+  List<int> image(Image imgSrc, {PosAlign align = PosAlign.center}) {
     _socket.add(_generator.image(imgSrc, align: align));
+    return [];
   }
 
   void imageRaster(
@@ -167,8 +172,9 @@ class NetworkPrinter {
     _socket.add(_generator.drawer(pin: pin));
   }
 
-  void hr({String ch = '-', int? len, int linesAfter = 0}) {
+  List<int> hr({String ch = '-', int? len, int linesAfter = 0}) {
     _socket.add(_generator.hr(ch: ch, linesAfter: linesAfter));
+    return [];
   }
 
   void textEncoded(
