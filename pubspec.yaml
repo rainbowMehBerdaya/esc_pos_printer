@@ -11,7 +11,9 @@ dependencies:
   charset_converter: ^2.0.0
 #  esc_pos_utils: ^1.1.0
   esc_pos_utils:
-    path: /Users/lysandergustin/SourceCode/esc_pos_utils
+    git:
+      url: https://github.com/rainbowMehBerdaya/esc_pos_utils.git
+      ref: updated
   flutter:
     sdk: flutter
   # esc_pos_utils:
