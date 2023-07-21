@@ -9,16 +9,16 @@ environment:
 
 dependencies:
   charset_converter: ^2.1.1
-#  esc_pos_utils: ^1.1.0
   esc_pos_utils:
-    git:
-      url: https://github.com/rainbowMehBerdaya/esc_pos_utils.git
-      ref: 6824eeb44a61d9e4ecacf431cc747b885b3128f9
+    path: /Users/lysandergustin/Projects/AndroidStudioProjects/esc_pos_utils
+  #    git:
+  #      url: https://github.com/rainbowMehBerdaya/esc_pos_utils.git
+  #      ref: 6824eeb44a61d9e4ecacf431cc747b885b3128f9
   flutter:
     sdk: flutter
   # esc_pos_utils:
   #   path: ../esc_pos_utils
-  image: ^4.0.15
+  image: ^4.0.17
 
 dev_dependencies:
   flutter_test:
