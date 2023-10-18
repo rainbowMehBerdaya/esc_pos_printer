@@ -13,7 +13,7 @@ dependencies:
 #    path: /Users/lysandergustin/Projects/AndroidStudioProjects/esc_pos_utils
       git:
         url: https://github.com/rainbowMehBerdaya/esc_pos_utils.git
-        ref: 3e827d7d0649e8e427de9f0658a2fb59ef9ab3a8
+        ref: 61d82f50cd41bde6c3bc2dd5f667f729a54966b3
   flutter:
     sdk: flutter
   # esc_pos_utils:
