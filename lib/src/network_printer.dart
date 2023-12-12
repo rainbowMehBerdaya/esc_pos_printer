@@ -53,8 +53,9 @@ class NetworkPrinter {
   }
 
   // ************************ Printer Commands ************************
-  void reset() {
+  List<int> reset() {
     _socket.add(_generator.reset());
+    return [];
   }
 
   List<int> text(
