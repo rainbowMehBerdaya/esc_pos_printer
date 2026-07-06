@@ -32,7 +32,7 @@ class NetworkPrinter {
   CapabilityProfile get profile => _profile;
 
   Future<PosPrintResult> connect(String host,
-      {int port = 91000, Duration timeout = const Duration(seconds: 5)}) async {
+      {int port = 9100, Duration timeout = const Duration(seconds: 5)}) async {
     _host = host;
     _port = port;
     try {
@@ -44,12 +44,19 @@ class NetworkPrinter {
     }
   }
 
-  /// [delayMs]: milliseconds to wait after destroying the socket
-  void disconnect({int? delayMs}) async {
-    _socket.destroy();
+  /// [delayMs]: milliseconds to wait after flushing before destroying the socket
+  Future<void> disconnect({int? delayMs}) async {
+    // Socket.add() only buffers bytes; destroy() discards anything unflushed,
+    // which truncated the end of tickets (feed/cut commands).
+    try {
+      await _socket.flush();
+    } catch (_) {
+      // Flushing a broken socket must not prevent the cleanup below.
+    }
     if (delayMs != null) {
       await Future.delayed(Duration(milliseconds: delayMs), () => null);
     }
+    _socket.destroy();
   }
 
   // ************************ Printer Commands ************************
